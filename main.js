@@ -43,8 +43,7 @@ var ficherosEstaticos = path.join(__dirname, "public");
 app.use(express.static(ficherosEstaticos));
 
 app.set('view engine', 'ejs');
-app.set("views", path.join(__dirname, "views"));
-
+app.set('views', path.join(__dirname, 'views'));
 /*app.get("/", function(request, response){
     response.status(200);
     response.type("text/plain; charset = utf-8");
@@ -65,13 +64,13 @@ app.get("/Nuevo_usuario", function (req, resp){
     
     user.CrearUsuario(req.query.usuario, req.query.contrasena, req.query.nombre, sexo, null, req.query.fecha_nacimiento, function (err, resultado){
         if(!err){
-            resp.render("/HTML_Bienvenido-Practica1", {
+            resp.render("HTML_Bienvenido-Practica1", {
                 usuario: req.query.usuario,
                 correcto: true
             });
         }
         else{
-           resp.render("/HTML_NuevoUsuario-Practica1", {
+           resp.render("HTML_NuevoUsuario-Practica1", {
                 usuario: req.query.usuario,
                 nombre: req.query.nombre,
                 sexo: req.query.sexo,
