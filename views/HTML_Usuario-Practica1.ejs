@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saboteadores en Linea</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/Plantilla-Practica1.css"/>
+		<link rel="stylesheet" href="css/Tablas-Practica1.css"/>
+	</head>
+
+	<body>
+		<div class="logo"> 
+
+			<a title="titulo" href="HTML_Usuario-Practica1.ejs"><img src="img/Logo.png" alt="titulo"></a>
+			
+			<div class="texto">
+				<img class="imagen" src="img/Conectado.png"> 
+				<p class="conectado"><%= usuario%></p>
+			</div>
+
+		</div>
+
+		<div class="menu">
+				
+				<ul class="lista">
+					
+					<li>
+					
+						<a href="HTML_Bienvenido-Practica1.html"> Desconectar </a>
+					
+					</li>
+					
+					<li>
+					
+						<a href="HTML_UnirseAPartida-Practica1.ejs"> Unirse a partida </a>
+					
+					</li>
+
+					<li>
+					
+						<a href="HTML_CrearPartida-Practica1.ejs"> Crear partida </a>
+					
+					</li>
+				
+				</ul></div>
+
+		<div class="contenido">
+
+			<h1> <%if(sexo === 1) { %> 
+			¡Bienvenido, 
+			<% } else { %>
+			¡Bienvenida,<% } %> <%= nombreCompleto%>!</h1>
+
+			<h2>Partidas abiertas</h2>
+			
+			<p>Las siguientes partidas han sido creadas por ti, pero aín están a la espera de recibir mas jugadores.</p>
+
+			<table>
+				
+			<tr>
+				<th>Nombre</th>
+				<th>Fecha</th>
+				<th>Número de jugadores</th>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			</table>
+
+			<h2>Partidas activas</h2>
+
+			<p>Haz click en el título de la partida para ver su estado actual <br> se marcan resaltadas la partidas en las que es tu turno.</p>
+
+			<table>
+				
+			<tr>
+				<th>Nombre</th>
+				<th>Usuario creador</th>
+				<th>Fecha</th>
+				<th>Turno</th>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			</table>
+
+			<h2>Partidas terminadas</h2>
+
+			<table>
+				<tr>
+				<th>Nombre</th>
+				<th>Usuario creador</th>
+				<th>¿Has ganado?</th>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			</table>
+
+		</div>
+
+
+	</body>
+</html>

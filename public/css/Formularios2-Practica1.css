@@ -1,0 +1,114 @@
+input[type=submit] {
+	background-color: #af0101;
+	border: none;
+	box-shadow: inset 0px 4px 5px 0px rgba(0, 0, 0, .2);
+	color: white;
+	font-weight:bold;
+	cursor: pointer;
+	font-size: 15px;
+	margin-top: 7px;
+	outline: none;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+}
+
+input[type=submit]:hover 
+{
+	background-color: #af0101;
+	box-shadow: inset 0px 4px 5px 0px rgba(0, 0, 0, .8);
+}
+input[type=submit]:active {
+	background-color: #af0101;
+	box-shadow: inset 0px 6px 7px 2px rgba(0, 0, 0, 1);
+	
+}
+
+input[type=text]{
+	background: rgba(216, 216, 216, 0);
+	border: 0 none;
+	border-bottom: 3px solid grey;
+}
+
+input[type=text]:focus{
+	border-bottom: 3px solid lightblue;
+	background: rgba(216, 216, 216, 0);
+}
+
+input[type=password]{
+	background-color: rgba(216, 216, 216, 0);
+	border: 0 none;
+	border-bottom: 3px solid grey;
+}
+
+input[type=password]:focus{
+	border-bottom: 3px solid lightblue;
+	background-color: rgba(216, 216, 216, 0);
+}
+input[type=date]{
+	background-color: rgba(216, 216, 216, 0);
+	border: 0 none;
+	border-bottom: 3px solid grey;
+}
+
+input[type=date]:focus{
+	border-bottom: 3px solid lightblue;
+	background-color: rgba(216, 216, 216, 0);
+}
+
+input[type=number]{
+	background: rgba(216, 216, 216, 0);
+	border: 0 none;
+	border-bottom: 3px solid grey;
+}
+
+input[type=number]:focus{
+	border-bottom: 3px solid lightblue;
+	background: rgba(216, 216, 216, 0);
+}
+
+label{
+	cursor: pointer;
+}
+
+input[type=radio]{
+	display: none;
+}
+
+input[type=radio] + label:before{
+	content: "\00a0";
+	display: inline-block;
+	font: 16px/1em sans-serif;
+  	height: 16px;
+  	margin: 0 .25em 0 0;
+  	padding:0;
+ 	vertical-align: top;
+  	width: 16px;
+	background-color: rgba(0, 0, 0, 0);
+	border: 2px solid grey;
+	box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+}
+
+.radio label:before{
+	border-radius: 10px;
+
+}
+
+input[type=radio]:checked + label:before{
+	content: "\25CF";/*♦♥•*/
+	color: #af0101;
+	text-align: center;
+	line-height: 12.1px;
+	
+}
+input[type=radio]:checked + label:after {
+  font-weight: bold;
+}
+
+input[type=file]{
+	cursor: pointer;
+}
+
+.asterisco{
+	color: #af0101;
+}

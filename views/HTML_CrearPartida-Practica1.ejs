@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+	<head>
+		<title>Saboteadores en Linea</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/Plantilla-Practica1.css"/>
+		<link rel="stylesheet" href="css/Formularios-Practica1.css"/>
+	</head>
+
+	<body>
+		<div class="logo"> 
+
+			<a title="titulo" href="HTML_Usuario-Practica1.ejs"><img src="img/Logo.png" alt="titulo"></a>
+			
+			<div class="texto">
+				<img class="imagen" src="img/Conectado.png"> 
+				<p class="conectado"><%= usuario%></p>
+			</div>
+
+		</div>
+
+		<div class="menu">
+				
+				<ul class="lista">
+					
+					<li>
+						<a href="HTML_Bienvenido-Practica1.html"> Desconectar </a>
+					</li>
+					
+					<li>
+						<a href="HTML_UnirseAPartida-Practica1.ejs"> Unirse a partida </a>
+					</li>
+
+					<li>				
+						<a href="HTML_CrearPartida-Practica1.ejs"> Crear partida </a>
+					</li>
+				
+				</ul></div>
+
+		<div class="contenido">
+
+			<h1>Nueva partida</h1>
+			
+			<p>Introduce los datos de la partida:</p>
+
+			<form method="GET" action="CrearPartida">
+			<table>
+				<tr>
+					<td>Nombre: <span class="asterisco">*</span></td>
+					<td><input type="text" name="nombrePartida" placeholder="Mi partida"></td>
+				</tr>
+
+				<tr>
+					<td>Número máximo de jugadores (entre 3 y 7): <span class="asterisco">*</span></td>
+					<td><input type="number" name="jugadores" value="3" min="3" max="7"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input class="boton" type="submit" value="Crear partida"></td>
+				</tr>
+			</table>
+				
+			</form>
+
+		</div>
+
+
+	</body>

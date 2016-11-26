@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+	<head>
+		<title>Saboteadores en Linea</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/Plantilla-Practica1.css"/>
+		<link rel="stylesheet" href="css/Tablas-Practica1.css"/>
+	</head>
+
+	<body>
+		<div class="logo"> 
+
+			<a title="titulo" href="HTML_Usuario-Practica1.ejs"><img src="img/Logo.png" alt="titulo"></a>
+			
+			<div class="texto">
+				<img class="imagen" src="img/Conectado.png"> 
+				<p class="conectado"><%= usuario%></p>
+			</div>
+
+		</div>
+
+		<div class="menu">
+				
+				<ul class="lista">
+					
+					<li>
+						<a href="HTML_Bienvenido-Practica1.html"> Desconectar </a>
+					</li>
+					
+					<li>
+						<a href="HTML_UnirseAPartida-Practica1.ejs"> Unirse a partida </a>
+					</li>
+
+					<li>				
+						<a href="HTML_CrearPartida-Practica1.ejs"> Crear partida </a>
+					</li>
+				
+				</ul></div>
+
+		<div class="contenido">
+
+			<h1>Unirse a partida</h1>
+			
+			<p>A continuación se muestra una lista con las partidas abiertas que admiten jugadores.</p>
+
+			<table>
+				<tr>
+					<th>Nombre</th>
+					<th>Creador</th>
+					<th>Estado</th>
+					<th>Máximo de jugadores</th>
+					<th>Jugadores apuntados</th>
+				</tr>
+
+				<% partidas.forEach(function(partida){ %>
+
+					<tr>
+						<td><%= partida.Nombre %></td>
+						<td><%= partida.Creador %></td>
+						<td><%= partida.Estado %></td>
+						<td><%= partida.Numero_Jugadores %></td>
+					</tr>
+
+				<% }); %>
+				
+			</table>
+
+		</div>
+
+
+	</body>
