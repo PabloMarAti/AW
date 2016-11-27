@@ -12,6 +12,32 @@ body{
 	font-family: 'Roboto', serif;
 }
 
+.correct{
+    border: 2px solid darkgreen;
+    background-color: lightgreen;
+    color: darkgreen;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.correct img{
+    width: 16px;
+    height: 16px;
+}
+.incorrect{
+    border: 2px solid darkred;
+    background-color: burlywood;
+    color: darkred;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.incorrect img{
+    width: 16px;
+    height: 16px;
+    padding-right: 8px;
+}
+
 .texto{
 	background: rgba(216, 216, 216, 0.4);
 	border-radius: 10px;

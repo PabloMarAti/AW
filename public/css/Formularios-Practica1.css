@@ -1,3 +1,5 @@
+ 
+
 input[type=submit] {
 	background-color: white;
 	border: none;
@@ -26,6 +28,11 @@ input[type=text]{
 	background: rgba(216, 216, 216, 0);
 	border: 0 none;
 	border-bottom: 3px solid grey;
+}
+input.UserError{
+	background: rgba(216, 216, 216, 0);
+	border: 0 none;
+	border-bottom: 3px solid darkred;
 }
 
 input[type=text]:focus{

@@ -30,6 +30,10 @@
 
 		<div class="contenido">
 
+                        <%if(correcto === false) { %>
+                            <p class="incorrect"> <img src="img/error.png" alt="titulo">El nombre de usuario <%=usuario %> ya existe</p>
+                        <% } %>
+
 			<h1>Nuevo usuario</h1>
 			
 			<p>Introduce tus datos de usuario. Los campos marcados con asterisco (<span class="asterisco">*</span>) son obligatorios;</p>
@@ -38,7 +42,7 @@
 			<table>
 				<tr>
 					<td>Nombre de usuario: <span class="asterisco">*</span></td>
-					<td><input type="text" name="usuario" placeholder="Usuario"></td>
+					<td><input type="text" name="usuario" placeholder="Usuario" <%if(correcto === false) { %> value=<%=usuario %> class="UserError" <% } %> ></td>
 				</tr>
 
 				<tr>
@@ -48,15 +52,15 @@
 
 				<tr>
 					<td>Nombre completo: <span class="asterisco">*</span> </td>
-					<td><input type="text" name="nombre" placeholder="Nombre Completo"></td>
+					<td><input type="text" name="nombre" placeholder="Nombre Completo" <%if(correcto === false) { %> value = <%=nombre %> <% } %> ></td>
 				</tr>
 
 				<tr>
 					<td>Sexo: </td>
 					<td>
 						<div class = "radio">
-						<input type="radio" id = "r1" name="sexo" value="hombre"><label for ="r1">Hombre</label>
-						<input type="radio" id = "r2" name="sexo" value="mujer"> <label for ="r2">Mujer</label>
+						<input type="radio" id = "r1" name="sexo" value="hombre"<%if(sexo === "hombre") { %> checked <% } %> > <label for ="r1">Hombre</label>
+						<input type="radio" id = "r2" name="sexo" value="mujer"<%if(sexo === "mujer") { %> checked <% } %> > <label for ="r2">Mujer</label>
 						</div>
 					</td>
 				</tr>
@@ -68,7 +72,7 @@
 
 				<tr>
 					<td>Fecha de nacimiento: </td>
-					<td><input type="date" name="fecha_nacimiento" placeholder = "dd/mm/aaaa"></td>
+					<td><input type="date" name="fecha_nacimiento" placeholder = "dd/mm/aaaa"<%if(correcto === false) { %> value = <%=fecha %> <% } %> ></td>
 				</tr>
 
 				<tr>

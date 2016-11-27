@@ -64,20 +64,21 @@ app.get("/Nuevo_usuario", function (req, resp){
     
     user.CrearUsuario(req.query.usuario, req.query.contrasena, req.query.nombre, sexo, null, req.query.fecha_nacimiento, function (err, resultado){
         if(!err){
-            resp.render("HTML_Bienvenido-Practica1", {
-                usuario: req.query.usuario,
-                correcto: true
-            });
-        }
-        else{
-           resp.render("HTML_NuevoUsuario-Practica1", {
-                usuario: req.query.usuario,
-                nombre: req.query.nombre,
-                sexo: req.query.sexo,
-                fecha: req.query.fecha_nacimiento,
-                correcto: false,
-                error: err
-            }) ;
+            if(resultado){
+                resp.render("HTML_Bienvenido-Practica1", {
+                    usuario: req.query.usuario,
+                    correcto: true
+                });
+            }
+            else{
+               resp.render("HTML_NuevoUsuario-Practica1", {
+                    usuario: req.query.usuario,
+                    nombre: req.query.nombre,
+                    sexo: req.query.sexo,
+                    fecha: req.query.fecha_nacimiento,
+                    correcto: false
+                }) ;
+            }
         }
     });
     
