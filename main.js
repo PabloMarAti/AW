@@ -122,12 +122,27 @@ app.get("/HTML_CrearPartida-Practica1.ejs", function (req, resp){
    });
 });
 
-app.get("/HTML_Usuario-Practica1.ejs", function (req, resp){
-   resp.render("HTML_Usuario-Practica1", {
-        usuario: req.session.usuario,
-        nombreCompleto: req.session.Nombre_Completo,
-        sexo: req.session.Sexo
-   });
+app.get("/HTML_Usuario-Practica1.ejs", function (req, resp) {
+    game.LeerPartidasAbiertasPrivadas(req.session.usuario, function (err, abiertasPrivadas) {
+        if (!err) {
+            game.LeerPartidasActivasPrivadas(req.session.usuario, function (err, activasPrivadas) {
+                if (!err) {
+                    game.LeerPartidasCerradasPrivadas(req.session.usuario, function (err, cerradasPrivadas) {
+                        if(!err){
+                            resp.render("HTML_Usuario-Practica1", {
+                                usuario: req.session.usuario,
+                                nombreCompleto: req.session.Nombre_Completo,
+                                sexo: req.session.Sexo,
+                                abiertasPrivadas: abiertasPrivadas,
+                                activasPrivadsa: activasPrivadas,
+                                cerradasPrivadas: cerradasPrivadas
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
 });
 
 app.get("/CrearPartida", function (req, resp){

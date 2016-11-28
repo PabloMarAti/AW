@@ -62,12 +62,15 @@
 				<th>Número de jugadores</th>
 			</tr>
 
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+			<<% abiertasPrivadas.forEach(function(partida){ %>
+
+				<tr>
+					<td><%= partida.Nombre %></td>
+					<td><%= partida.Fecha %></td>
+					<td><%= partida.Numero_Jugadores %></td>
+				</tr>
+
+			<% }); %>
 
 			</table>
 
@@ -84,12 +87,16 @@
 				<th>Turno</th>
 			</tr>
 
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+			<% partidas.forEach(function(partida){ %>
+
+				<tr>
+					<td><%= partida.Nombre %></td>
+					<td><%= partida.Creador %></td>
+					<td><%= partida.Fecha %></td>
+					<td><%= partida.Turno %></td>
+				</tr>
+
+			<% }); %>
 
 			</table>
 
@@ -102,11 +109,17 @@
 				<th>¿Has ganado?</th>
 			</tr>
 
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+			<% partidas.forEach(function(partida){ %>
+
+				<tr>
+					<td><%= partida.Nombre %></td>
+					<td><%= partida.Creador %></td>
+					<td><%= partida.Estado %></td>
+					<td><%= partida.Numero_Jugadores %></td>
+				</tr>
+
+			<% }); %>
+
 			</table>
 
 		</div>
