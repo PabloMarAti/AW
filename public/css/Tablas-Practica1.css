@@ -16,3 +16,7 @@ td{
 table{
 	border-collapse: collapse;
 }
+
+.resaltado{
+    color: darkorange;
+}

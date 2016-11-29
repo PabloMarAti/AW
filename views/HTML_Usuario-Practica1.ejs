@@ -52,7 +52,7 @@
 
 			<h2>Partidas abiertas</h2>
 			
-			<p>Las siguientes partidas han sido creadas por ti, pero aín están a la espera de recibir mas jugadores.</p>
+			<p>Las siguientes partidas han sido creadas por ti, pero aún están a la espera de recibir mas jugadores.</p>
 
 			<table>
 				
@@ -62,13 +62,14 @@
 				<th>Número de jugadores</th>
 			</tr>
 
-			<<% abiertasPrivadas.forEach(function(partida){ %>
-
+			<% abiertasPrivadas.forEach(function(partida){ %>
+				
 				<tr>
 					<td><%= partida.Nombre %></td>
 					<td><%= partida.Fecha %></td>
 					<td><%= partida.Numero_Jugadores %></td>
 				</tr>
+
 
 			<% }); %>
 
@@ -87,9 +88,18 @@
 				<th>Turno</th>
 			</tr>
 
-			<% activasPrivadsa.forEach(function(partida){ %>
+			<% activasPrivadas.forEach(function(partida){ %>
 
-				<tr>
+				<%if(usuario === partida.Turno){ %>
+
+					<tr class="resaltado">
+
+				<% } else{ %>
+
+					<tr>
+
+				<% } %>
+
 					<td><%= partida.Nombre %></td>
 					<td><%= partida.Creador %></td>
 					<td><%= partida.Fecha %></td>
