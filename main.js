@@ -188,6 +188,10 @@ app.get("/CrearPartida", function (req, resp) {
     });
 });
 
+app.get("/unirse", function (req, resp){
+    console.log(req.url);
+});
+
 //x.CrearUsuario("Juan", "1234", "Juan Rodriguez", 1, null, null, imprimir);
 
 //x.Login("Juan", "123", imprimir);
