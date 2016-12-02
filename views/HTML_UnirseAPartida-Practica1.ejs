@@ -58,8 +58,8 @@
 						<td><%= partida.Creador %></td>
 						<td><%= partida.Estado %></td>
 						<td><%= partida.Numero_Jugadores %></td>
-                                                <td>  </td>
-                                                <td> <a href="unirse?nombre=<%= partida.Nombre %>"> Unirse </a></td>
+                                                <td><%= partida.JugadoresUnidos %></td>
+                                                <td> <a href="unirse?nombre=<%= partida.Nombre %>&maximo=<%= partida.Numero_Jugadores %>"> Unirse </a></td>
 					</tr>
 
 				<% }); %>

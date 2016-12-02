@@ -68,6 +68,7 @@
 					<td><%= partida.Nombre %></td>
 					<td><%= partida.Fecha %></td>
 					<td><%= partida.Numero_Jugadores %></td>
+                                        <td><a href="/cerrarpartida/?nombre=<%= partida.Nombre %>"> Cerrar </a></td>
 				</tr>
 
 
@@ -104,6 +105,7 @@
 					<td><%= partida.Creador %></td>
 					<td><%= partida.Fecha %></td>
 					<td><%= partida.Turno %></td>
+                                        <td><a href="/cargaTablero/?nombre=<%= partida.Nombre %>"> Entrar </a></td>
 				</tr>
 
 			<% }); %>

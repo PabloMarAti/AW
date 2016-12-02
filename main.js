@@ -96,27 +96,8 @@ app.get("/Logear", function (req, resp) {
             req.session.usuario = req.query.usuario;
             req.session.Nombre_Completo = resultado[0].Nombre_Completo;
             req.session.Sexo = resultado[0].Sexo;
-
-            game.LeerPartida.AbiertasPrivadas(req.session.usuario, function (err, abiertasPrivadas) {
-                if (!err) {
-                    game.LeerPartida.ActivasPrivadas(req.session.usuario, function (err, activasPrivadas) {
-                        if (!err) {
-                            game.LeerPartida.CerradasPrivadas(req.session.usuario, function (err, cerradasPrivadas) {
-                                if (!err) {
-                                    resp.render("HTML_Usuario-Practica1", {
-                                        usuario: req.session.usuario,
-                                        nombreCompleto: req.session.Nombre_Completo,
-                                        sexo: req.session.Sexo,
-                                        abiertasPrivadas: abiertasPrivadas,
-                                        activasPrivadas: activasPrivadas,
-                                        cerradasPrivadas: cerradasPrivadas
-                                    });
-                                }
-                            });
-                        }
-                    });
-                }
-            });
+         
+            resp.redirect("HTML_Usuario-Practica1.ejs");
         }
     });
 });
@@ -164,32 +145,47 @@ app.get("/HTML_Usuario-Practica1.ejs", function (req, resp) {
 });
 
 app.get("/CrearPartida", function (req, resp) {
-    game.CrearPartida(req.query.nombrePartida, req.session.usuario, req.query.jugadores);
-
-    game.LeerPartida.AbiertasPrivadas(req.session.usuario, function (err, abiertasPrivadas) {
-        if (!err) {
-            game.LeerPartida.ActivasPrivadas(req.session.usuario, function (err, activasPrivadas) {
-                if (!err) {
-                    game.LeerPartida.CerradasPrivadas(req.session.usuario, function (err, cerradasPrivadas) {
-                        if (!err) {
-                            resp.render("HTML_Usuario-Practica1", {
-                                usuario: req.session.usuario,
-                                nombreCompleto: req.session.Nombre_Completo,
-                                sexo: req.session.Sexo,
-                                abiertasPrivadas: abiertasPrivadas,
-                                activasPrivadas: activasPrivadas,
-                                cerradasPrivadas: cerradasPrivadas
-                            });
-                        }
-                    });
-                }
-            });
+    game.CrearPartida(req.query.nombrePartida, req.session.usuario, req.query.jugadores, function (err, resultado){
+        if(!err){
+            resp.redirect("HTML_Usuario-Practica1.ejs");
+        } else{
+            
         }
     });
 });
 
 app.get("/unirse", function (req, resp){
-    console.log(req.url);
+    game.Unirse(req.query.nombre, req.session.usuario, req.query.maximo, function (err, resultado){
+        if(!err){
+            resp.redirect("HTML_Usuario-Practica1.ejs");
+        } else{
+            
+        }
+    });
+});
+
+app.get("/cerrarpartida", function (req, resp){
+    game.ModificarEstadoPartida(req.query.nombre, "Activa", function (err, resultado){
+        if(!err){
+            resp.redirect("HTML_Usuario-Practica1.ejs");
+        } else{
+            
+        }
+    });
+});
+
+app.get("/cargaTablero", function (req, resp) {
+    gameboard.leerTablero(req.query.nombre, function (err, resultado) {
+        if (!err) {
+            resp.render("HTML_Tablero-Practica1", {
+                usuario: req.session.usuario,
+                partida: req.query.nombre,
+                tablero: resultado
+            });
+        } else{
+            
+        }
+    });
 });
 
 //x.CrearUsuario("Juan", "1234", "Juan Rodriguez", 1, null, null, imprimir);
