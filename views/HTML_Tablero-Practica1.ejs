@@ -8,11 +8,11 @@
 	<body>
 		<div class="logo"> 
 
-			<a title="titulo" href="HTML_Usuario-Practica1.html"><img src="img/Logo.png" alt="titulo"></a>
+			<a title="titulo" href="HTML_Usuario-Practica1.ejs"><img src="img/Logo.png" alt="titulo"></a>
 			
 			<div class="texto">
 				<img class="imagen" src="img/Conectado.png"> 
-				<p class="conectado">JuanRRRRR</p>
+				<p class="conectado"><%= usuario%></p>
 			</div>
 
 		</div>
@@ -22,24 +22,47 @@
 				<ul class="lista">
 					
 					<li>
-					
-						<a href="HTML_Login-Practica1.html"> LOGIN </a>
-					
+						<a href="HTML_Bienvenido-Practica1.html"> Desconectar </a>
 					</li>
 					
 					<li>
-					
-						<a href="HTML_NuevoUsuario-Practica1.html"> NUEVO USUARIO </a>
-					
+						<a href="HTML_UnirseAPartida-Practica1.ejs"> Unirse a partida </a>
+					</li>
+
+					<li>				
+						<a href="HTML_CrearPartida-Practica1.ejs"> Crear partida </a>
 					</li>
 				
 				</ul></div>
 
 		<div class="contenido">
 
-			<h1></h1>
+			<h1>Partida: <%= nombre %></h1>
 			
-			<p></p>
+			<p>Creada por: <%= creador %></p>
+			<p>Jugadores: <%= jugadoers %></p>
+			<p>Turno de: <%= turno %></p>
+			<p>Turnos restantes: <%= turnosRestantes %></p>
+
+			<h2>Tablero</h2>
+
+			<table>
+				
+			<% for(){ %>
+
+				<tr>
+
+				<% for(){ %>
+					
+					<td><img class="imagen" src=<%  %>></td>
+
+				<% } %>
+
+				</tr>
+
+			<% } %>
+
+			</table>
 
 		</div>
 
