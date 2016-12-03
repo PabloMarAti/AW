@@ -18,6 +18,7 @@ function imprimir(err, result) {
 
 var user = require("Usuario");
 var game = require("Partida");
+var gameboard = require("Tablero");
 
 var app = express();
 
@@ -186,6 +187,10 @@ app.get("/cargaTablero", function (req, resp) {
             
         }
     });
+});
+
+app.get("/ponerFicha", function (req, resp){
+    
 });
 
 //x.CrearUsuario("Juan", "1234", "Juan Rodriguez", 1, null, null, imprimir);
