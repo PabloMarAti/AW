@@ -1,0 +1,148 @@
+.celda{
+    background-color: brown;
+    height: 75px;
+    width: 75px;
+	margin:0px;
+	padding:0px;
+}
+.celda img{
+	height: 75px;
+    width: 75px;
+	display: block;
+	margin:0px;
+	padding:0px;
+
+}
+.mano{
+	background: rgba(216, 216, 216, 0.5);
+	margin-bottom: 5px;
+}
+.cartamano{
+	
+    height: 75px;
+    width: 75px;
+    margin-right: 5px;
+}
+
+.enlace{
+	padding: 29px;
+	padding-right: 46px;
+
+
+}
+.tablero{
+	float:left;
+}
+
+
+.desechar{
+	background: #af0101;
+	border: 2px solid black;
+	padding: 10px 0px 10px 0px;
+	margin-left: 3px;
+	float:left;
+}
+
+.desechar:hover{
+	background: #ffa500;
+	color: black;
+}
+
+.desechar a{
+	color: white;
+	font-weight: bold;
+	padding: 12px 20px 12px 20px;
+	text-decoration: none;
+}
+.datos{
+	clear:both;
+}
+.clear{
+	clear:both;
+}
+.jugadores{
+float: right;
+border-collapse: collapse;
+}
+.jugadores td{
+	border: 1px solid black;
+	padding: 2px 14px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.jugadores th{
+	border: 1px solid black;
+	padding: 2px 14px;
+	color: white;
+	background-color: #af0101;
+}
+.jugadores img{
+	width: auto;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+}
+.turno{
+	background-color: burlywood;
+}
+.DatosCarta{
+	float:right;
+	margin-left:auto;
+	margin-right:auto;
+	width:50%;
+}
+.TableroPoner{
+	float:left;
+}
+
+
+.ganador{
+	
+    border: 2px solid darkgreen;
+    background-color: lightgreen;
+    color: darkgreen;
+    display:inline-block;
+}
+.ganador p{
+	padding-bottom: 3px;
+	padding-left: 6px;
+	padding-right: 6px;
+	clear:both;
+}
+.ganador img{
+
+	float:right;
+	padding-right:35%;
+	width:75px;
+	height:75px;
+
+}
+.jugadoresPoner{
+float: left;
+border-collapse: collapse;
+}
+.jugadoresPoner td{
+	border: 1px solid black;
+	padding: 2px 14px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.jugadoresPoner th{
+	border: 1px solid black;
+	padding: 2px 14px;
+	color: white;
+	background-color: #af0101;
+}
+.jugadoresPoner img{
+	width: auto;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+}
+

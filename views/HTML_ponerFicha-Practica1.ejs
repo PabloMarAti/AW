@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+	<head>
+		<title>Saboteadores en Linea</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/Plantilla-Practica1.css"/>
+                <link rel="stylesheet" href="css/Tablero-Practica1.css"/>
+	</head>
+
+	<body>
+		<div class="logo"> 
+
+			<a title="titulo" href="HTML_Usuario-Practica1.ejs"><img src="img/Logo.png" alt="titulo"></a>
+			
+			<div class="texto">
+				<% if(foto === "null") { %> 
+				<img class="imagen" src="img/Conectado.png">
+				<% } else { %>
+				<img class="imagen" src=<%= foto%>>
+				<% } %> 
+				
+				<p class="conectado"><%= usuario%></p>
+			</div>
+
+		</div>
+
+		<div class="menu">
+				
+				<ul class="lista">
+					
+					<li>
+						<a href="/desconectar"> Desconectar </a>
+					</li>
+					
+					<li>
+						<a href="HTML_UnirseAPartida-Practica1.ejs"> Unirse a partida </a>
+					</li>
+
+					<li>				
+						<a href="HTML_CrearPartida-Practica1.ejs"> Crear partida </a>
+					</li>
+				
+				</ul></div>
+
+		<div class="contenido">
+
+		<% if(Tipo ==="ArreglarPico" || Tipo ==="DestruirPico") { %> 
+
+		<div class="jugadoresPoner">
+			
+	                        <h2>Jugadores que se han unido: </h2>
+	                        <p>El jugador que tiene el turno está señalado</p>
+	                        <table class= "jugadores">
+	                        <tr>
+
+	                        <th>
+	                        Foto
+	                        </th>
+	                        <th>
+	                        Nombre
+	                        </th>
+	                        <th>
+	                        Rol
+	                        </th>
+
+	                        </tr>
+	                        
+	                        
+	                            <% JugadoresUnidos.forEach(function(user){ %>
+	                            <tr>
+	                            
+		                            <td>
+		                                <% if(user.Foto === "null") { %> 
+		                                    <img class="imagen" src="img/Conectado.png">
+		                                    <% } else { %>
+		                                    <img class="imagen" src=<%= user.Foto%>>
+		                                    <% } %> 
+		                            </td>
+		                            
+		                            
+		                            <td>
+		                                    <p><%= user.Nombre_Usuario%></p>
+		                            </td>
+		                           
+		                           	 <td>
+		                                    <p><%= user.Rol%></p>
+		                            </td>
+	                           	</tr>
+	                           
+	                            <% }); %>
+	                             
+	                        </table>
+	        </div>
+	        <% } else { %>
+
+		<div class="TableroPoner">
+			<h1>Colocar ficha</h1>
+
+			<table>
+				
+			<% for(var i=0; i<7; i++){ %>
+
+				<tr>
+
+				<% for(var j=0; j<7; j++){ %>
+
+					<% if( tablero[i][j] === undefined){ %>
+					<td class= "celda"><a class="enlace" title="carta" href="/ponerFicha?ID=<%= carta %>&partida=<%= partida %>&fila=<%= i %>&columna=<%= j %>"></a></td>
+					<% } else { %>
+                                                    <% if( tablero[i][j].ID_Carta < 4 && Rol === "buscador" && tablero[i][j].Descubierta === 0 && ganador === null){ 
+                                                        tablero[i][j].ID_Carta = 4;
+                                                        tablero[i][j].URL = "img/DNK.png";
+                                                     } %>
+					<td class ="celda"><img src=<%= tablero[i][j].URL %>></td>
+					<% } %>
+
+				<% } %>
+
+				</tr>
+
+			<% } %>
+
+			</table>
+			<h1>Desechar ficha</h1>
+			<div class="desechar">
+				
+				<a href="/desechar?ID=<%= carta %>&partida=<%= partida %>">Desechar ficha</a>
+			</div>
+
+			</div>
+			<% } %>
+
+
+			<div class="DatosCarta">
+			<h1>Carta seleccionada</h1>
+			
+			<p><img class="carta" src=<%= URL%>></p>
+			<p>Tipo de carta: <%= Tipo%></p>
+
+			</div>
+		
+			
+			
+		<p class="clear"></p>
+
+		</div>
+
+
+	</body>

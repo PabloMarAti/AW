@@ -1,0 +1,28 @@
+{
+  "name": "Practica_1",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "pablo",
+  "contributors": [],
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-mysql-session": "^1.2.0",
+    "express-session": "^1.14.2",
+    "express-validator": "^3.1.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "multer": "^1.2.0",
+    "mysql": "^2.12.0",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

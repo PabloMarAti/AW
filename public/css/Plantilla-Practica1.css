@@ -1,0 +1,109 @@
+@import 'https://fonts.googleapis.com/css?family=Walter+Turncoat';
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+
+body{
+	background-image: url("../img/mordor.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+
+
+a{
+	cursor:pointer;
+}
+.correct{
+    border: 2px solid darkgreen;
+    background-color: lightgreen;
+    color: darkgreen;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.correct img{
+    width: 16px;
+    height: 16px;
+}
+.incorrect{
+    border: 2px solid darkred;
+    background-color: burlywood;
+    color: darkred;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.incorrect img{
+    width: 16px;
+    height: 16px;
+    padding-right: 8px;
+}
+
+.texto{
+	background: rgba(216, 216, 216, 0.4);
+	border-radius: 10px;
+	color: white;
+	float: right;
+	margin: 10px;
+	padding: 10px;
+}
+
+.imagen{
+	line-height: 50px;
+	height: 50px;
+}
+
+.conectado{
+	float: right;
+	margin-left: 5px;
+}
+
+.lista{
+	display: inline;
+	padding: 0;
+	font-family: 'Walter Turncoat', cursive;
+}
+
+.lista li{
+	background: #af0101;
+	border: 2px solid black;
+	display: inline;
+	padding: 10px 0px 10px 0px;
+	margin-left: 3px;
+}
+
+.lista li:hover{
+	background: #ffa500;
+	color: black;
+}
+
+.lista a{
+	color: white;
+	font-weight: bold;
+	padding: 12px 20px 12px 20px;
+	text-decoration: none;
+}
+
+.menu{
+	background-color: burlywood; /*#c9b506*/;
+	padding: 10px 0px 10px 0px;
+	margin: 10px;
+}
+
+.contenido{
+	background: rgba(216, 216, 216, 0.75);
+	padding: 10px;
+	margin: 10px;
+	font-family: 'Roboto', serif;
+}
+
+.contenido h1{
+	font-size: 30px;
+	border-left: 5px solid black;
+	padding-left: 10px;
+}
+
+.contenido h2{
+	font-size: 25px;
+	border-left: 5px solid black;
+	padding-left: 10px;
+}

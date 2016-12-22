@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+	<head>
+		<title>Saboteadores en Linea</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/Plantilla-Practica1.css"/>
+		<link rel="stylesheet" href="css/Formularios-Practica1.css"/>
+	</head>
+
+	<body>
+		<div class="logo"> 
+
+			<a title="titulo" href="HTML_Usuario-Practica1.ejs"><img src="img/Logo.png" alt="titulo"></a>
+			
+			<div class="texto">
+				<% if(foto === "null") { %> 
+				<img class="imagen" src="img/Conectado.png">
+				<% } else { %>
+				<img class="imagen" src=<%= foto%>>
+				<% } %> 
+				
+				<p class="conectado"><%= usuario%></p>
+			</div>
+
+		</div>
+
+		<div class="menu">
+				
+				<ul class="lista">
+					
+					<li>
+						<a href="/desconectar"> Desconectar </a>
+					</li>
+					
+					<li>
+						<a href="HTML_UnirseAPartida-Practica1.ejs"> Unirse a partida </a>
+					</li>
+
+					<li>				
+						<a href="HTML_CrearPartida-Practica1.ejs"> Crear partida </a>
+					</li>
+				
+				</ul></div>
+
+		<div class="contenido">
+
+		<%if(correcto === false) { %>
+                  <p class="incorrect"> <img src="img/error.png" alt="titulo">La partida ya existe</p>
+        <% } %>
+
+			<h1>Nueva partida</h1>
+			
+			<p>Introduce los datos de la partida. Los campos marcados con asterisco (<span class="asterisco">*</span>) son obligatorios;</p>
+
+			<form method="POST" enctype="multipart/form-data" action="CrearPartida">
+			<table>
+				<tr>
+					<td class="rightAlign"><span class="asterisco">* </span>Nombre:</td>
+					<td><input type="text" name="nombrePartida" placeholder="Mi partida"
+					<%if(correcto === false || errores != null) { %>
+                	value=<%=partida %>
+                	<% } %>></td>
+                                        <% if (errores != null && errores.nombrePartida) { %>
+                                            <td class="incorrect"> <img src="img/error.png" alt="titulo"><%= errores.nombrePartida.msg %></td>
+                                        <% } %>
+				</tr>
+
+				<tr>
+					<td class="rightAlign"><span class="asterisco">* </span>Número máximo de jugadores (entre 3 y 7):</td>
+					<td>
+					<input type="number" name="jugadores" min="3" max="7" 
+					<%if(correcto === false || errores != null) { %>
+                	value=<%=jugadores %>
+                	<% } else { %>
+               		value="3"
+               		<% } %>
+               		></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input class="boton" type="submit" value="Crear partida"></td>
+				</tr>
+			</table>
+				
+			</form>
+
+		</div>
+
+
+	</body>

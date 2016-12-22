@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+	<head>
+		<title>Saboteadores en Linea</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/Plantilla-Practica1.css"/>
+		<link rel="stylesheet" href="css/Tablero-Practica1.css"/>
+
+	</head>
+
+	<body>
+		<div class="logo"> 
+
+			<a title="titulo" href="HTML_Usuario-Practica1.ejs"><img src="img/Logo.png" alt="titulo"></a>
+			
+			<div class="texto">
+				<% if(foto === "null") { %> 
+				<img class="imagen" src="img/Conectado.png">
+				<% } else { %>
+				<img class="imagen" src=<%= foto%>>
+				<% } %> 
+				
+				<p class="conectado"><%= usuario%></p>
+			</div>
+
+		</div>
+
+		<div class="menu">
+				
+				<ul class="lista">
+					
+					<li>
+						<a href="/desconectar"> Desconectar </a>
+					</li>
+					
+					<li>
+						<a href="HTML_UnirseAPartida-Practica1.ejs"> Unirse a partida </a>
+					</li>
+
+					<li>				
+						<a href="HTML_CrearPartida-Practica1.ejs"> Crear partida </a>
+					</li>
+				
+				</ul></div>
+
+		<div class="contenido">
+
+				<h1>Partida: <%= partida %></h1>
+                <% if(ganador !== null) { %> 
+		<div class="ganador">
+			<img src="img/winner.png">
+			  <p> El rol <%= ganador %> ha ganado </p>
+		</div>
+		<% } %>
+
+                <% if(puesta === "false") { %> 
+                <p class="incorrect"> <img src="img/error.png" alt="titulo">La carta no se puede colocar en esa posicion</p>
+		<% } %>
+                <% if(Rol === "buscador") { %>
+                <p>Tu rol es el de buscador, tu objetivo es encontrar el oro escondido en uno de los finales antes de que se agoten los turnos</p>
+                <% } else { %>
+                <p>Tu rol es el de saboteador, tu objetivo es evitar que los buscadores encuentren el oro</p>
+                <% } %>
+				
+	        <div class="tablero">
+
+			<h2>Tablero</h2>
+
+			<table>
+				
+			<% for(var i=0; i<7; i++){ %>
+
+				<tr>
+
+				<% for(var j=0; j<7; j++){ %>
+
+					<% if( tablero[i][j] === undefined){ %>
+					<td class= "celda"></td>
+					<% } else { %>
+						<% if( tablero[i][j].ID_Carta < 4 && Rol === "buscador" && tablero[i][j].Descubierta === 0 && ganador === null){ 
+						tablero[i][j].ID_Carta = 4;
+						tablero[i][j].URL = "img/DNK.png";
+						 } %>
+							<td class ="celda"><a title="carta" href="/LeerDatosCarta?ID=<%= tablero[i][j].ID_Carta %>&partida=<%= partida %>&fila=<%= i %>&columna=<%= j %>"><img src=<%= tablero[i][j].URL %>></a></td>
+					<% } %>
+
+				<% } %>
+
+				</tr>
+
+			<% } %>
+
+			</table>
+			</div>
+
+			<div class="jugadores">
+			
+	                        <h2>Jugadores que se han unido: </h2>
+	                        <p>El jugador que tiene el turno está señalado</p>
+	                        <table class= "jugadores">
+	                        <tr>
+
+	                        <th>
+	                        Foto
+	                        </th>
+	                        <th>
+	                        Nombre
+	                        </th>
+	                        <th>
+	                        Rol
+	                        </th>
+
+	                        </tr>
+	                        
+	                        
+	                            <% JugadoresUnidos.forEach(function(user){ %>
+	                            <tr>
+	                            
+		                            <td>
+		                                <% if(user.Foto === "null") { %> 
+		                                    <img class="imagen" src="img/Conectado.png">
+		                                    <% } else { %>
+		                                    <img class="imagen" src=<%= user.Foto%>>
+		                                    <% } %> 
+		                            </td>
+		                            
+		                            <% if(user.Nombre_Usuario === turno) { %>
+		                            	<td class="turno">
+		                            <% } else { %>
+		                            	<td>
+		                            <% } %>
+		                                    <p><%= user.Nombre_Usuario%></p>
+		                            </td>
+		                            <% if(user.Nombre_Usuario === turno) { %>
+		                           	 <td class="turno">
+		                            <% } else { %>
+		                           	 <td>
+		                            <% } %>
+		                                    <p><%= user.Rol%></p>
+		                            </td>
+	                           	</tr>
+	                           
+	                            <% }); %>
+	                             
+	                        </table>
+	        </div>
+			<p class="clear"></p>
+			
+			<% if(mano !== null) { %>
+				<h2>Tu mano</h2>
+
+				<table class ="mano">
+				<tr>
+
+				<% mano.forEach(function(carta){ %>
+
+						
+						<td>
+						<% if(usuario === turno ) { %> 
+							<a title="carta" href="/elegircarta?ID=<%= carta.ID_Carta %>&partida=<%= partida %>">
+						<img class ="cartamano" src=<%= carta.URL %>></a>
+						<% } else { %>
+						<img class ="cartamano" src=<%= carta.URL %>>
+						<% } %>
+						</td>
+				<% }); %>
+				</tr>
+				</table>
+				
+			<% } %>
+
+			
+			
+	        <div class="datos">
+				<h2>Datos de la partida</h2>
+				<p>Creada por: <%= creador %></p>
+				<p>Turno de: <%= turno %></p>
+				<p>Turnos restantes: <%= turnosRestantes %></p>
+			</div>
+			
+			
+
+
+		</div>
+
+
+	</body>

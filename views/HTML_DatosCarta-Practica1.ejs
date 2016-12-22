@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+	<head>
+		<title>Saboteadores en Linea</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/Plantilla-Practica1.css"/>
+	</head>
+
+	<div class="logo"> 
+
+			<a title="titulo" href="HTML_Usuario-Practica1.ejs"><img src="img/Logo.png" alt="titulo"></a>
+			
+			<div class="texto">
+                <% if(foto === "null") { %> 
+				<img class="imagen" src="img/Conectado.png">
+				<% } else { %>
+				<img class="imagen" src=<%= foto%>>
+				<% } %> 
+				<p class="conectado"><%= usuario%></p>
+			</div>
+
+		</div>
+
+		<div class="menu">
+				
+				<ul class="lista">
+					
+					<li>
+					
+						<a href="/desconectar"> Desconectar </a>
+					
+					</li>
+					
+					<li>
+					
+						<a href="HTML_UnirseAPartida-Practica1.ejs"> Unirse a partida </a>
+					
+					</li>
+
+					<li>
+					
+						<a href="HTML_CrearPartida-Practica1.ejs"> Crear partida </a>
+					
+					</li>
+				
+				</ul></div>
+
+		<div class="contenido">
+			<h1>Datos de la carta</h1>
+			
+			<p><img class="carta" src=<%= URL%>></p>
+
+			<p>Tipo de carta: <%= Tipo%></p>
+			<% if(Tipo !== "Incognita") { %>
+				<p>Colocada por el usuario: <%= nombre%></p>
+                        <% } %>
+				<p>Colocada en la fila: <%= Fila%></p>
+				<p>Colocada en la Columna: <%= Columna%></p>
+			
+			<p><a href="/cargaTablero?nombre=<%= partida %>">Volver a la partida</p>
+		</div>
+
+
+	</body>

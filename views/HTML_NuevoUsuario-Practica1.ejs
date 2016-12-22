@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+	<head>
+		<title>Saboteadores en Linea</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/Plantilla-Practica1.css"/>
+		<link rel="stylesheet" href="css/Formularios-Practica1.css"/>
+	</head>
+
+	<body>
+		<div class="logo"> 
+
+			<a title="titulo" href="HTML_Bienvenido-Practica1.html"><img src="img/Logo.png" alt="titulo"></a>
+			
+			<div class="texto">
+				<p class="conectado">No estás conectado</p>
+			</div>
+
+		</div>
+
+		<div class="menu">
+				
+				<ul class="lista">
+					<li>
+						<a href="HTML_Login-Practica1.html"> LOGIN </a>
+					</li>
+					<li>
+						<a href="HTML_NuevoUsuario-Practica1.html"> NUEVO USUARIO </a>
+					</li>
+				</ul></div>
+
+		<div class="contenido">
+
+                        <%if(correcto === false) { %>
+                            <p class="incorrect"> <img src="img/error.png" alt="titulo">El nombre de usuario <%=usuario %> ya existe</p>
+                        <% } %>
+
+			<h1>Nuevo usuario</h1>
+			
+			<p>Introduce tus datos de usuario. Los campos marcados con asterisco (<span class="asterisco">*</span>) son obligatorios;</p>
+
+			<form method="POST" enctype="multipart/form-data" action="Nuevo_usuario">
+			<table>
+				<tr>
+					<td class="rightAlign"><span class="asterisco">* </span>Nombre de usuario:</td>
+					<td><input type="text" <% if (errores.usuario) { %> class="UserError" <% } %> name="usuario" placeholder="Usuario" <%if(correcto === false || errores != null) { %> value=<%=usuario %> <% } %> ></td>
+                                        <% if (errores.usuario) { %>
+                                        <td class="incorrect"> <img src="img/error.png" alt="titulo"><%= errores.usuario.msg %></td>
+                                        <% } %>
+				</tr>
+
+				<tr>
+					<td class="rightAlign"><span class="asterisco">* </span>Contraseña (4-15 caracteres):</td>
+					<td><input type="password" <% if (errores.contrasena) { %> class="UserError" <% } %> name="contrasena" placeholder="Contraseña"></td>
+                                        <% if (errores.contrasena) { %>
+                                        <td class="incorrect"> <img src="img/error.png" alt="titulo"><%= errores.contrasena.msg %></td>
+                                        <% } %>
+				</tr>
+
+				<tr>
+					<td class="rightAlign"> <span class="asterisco">* </span>Nombre completo:</td>
+					<td><input type="text" <% if (errores.nombre) { %> class="UserError" <% } %>  name="nombre" placeholder="Nombre Completo" <%if(correcto === false || errores != null) { %> value = <%=nombre %> <% } %> ></td>
+                                        <% if (errores.nombre) { %>
+                                             <td class="incorrect"> <img src="img/error.png" alt="titulo"><%= errores.nombre.msg %></td>
+                                        <% } %>
+                                </tr>
+
+				<tr>
+					<td class="rightAlign">Sexo: </td>
+					<td>
+						<div class = "radio">
+						<input type="radio" id = "r1" name="sexo" value="hombre"<%if(sexo === "hombre") { %> checked <% } %> > <label for ="r1">Hombre</label>
+						<input type="radio" id = "r2" name="sexo" value="mujer"<%if(sexo === "mujer") { %> checked <% } %> > <label for ="r2">Mujer</label>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="rightAlign">Foto: </td>
+					<td><input name="imagen" type="file" > </td>
+				</tr>
+
+				<tr>
+					<td class="rightAlign">Fecha de nacimiento: </td>
+					<td><input type="date" name="fecha_nacimiento" placeholder = "dd/mm/aaaa"<%if(correcto === false || errores != null ) { %> value = <%=fecha %> <% } %> ></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td><input class="boton" type="submit" value="Crear cuenta de usuario"></td>
+				</tr>
+
+
+			</table></form>
+			
+		</div>
+
+
+	</body>

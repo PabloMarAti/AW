@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Saboteadores en Linea</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/Plantilla-Practica1.css"/>
+		<link rel="stylesheet" href="css/Tablas-Practica1.css"/>
+	</head>
+
+	<body>
+		<div class="logo"> 
+
+			<a title="titulo" href="HTML_Usuario-Practica1.ejs"><img src="img/Logo.png" alt="titulo"></a>
+			
+			<div class="texto">
+                <% if(foto === "null") { %> 
+				<img class="imagen" src="img/Conectado.png">
+				<% } else { %>
+				<img class="imagen" src=<%= foto%>>
+				<% } %> 
+				<p class="conectado"><%= usuario%></p>
+			</div>
+
+		</div>
+
+		<div class="menu">
+				
+				<ul class="lista">
+					
+					<li>
+					
+						<a href="/desconectar"> Desconectar </a>
+					
+					</li>
+					
+					<li>
+					
+						<a href="HTML_UnirseAPartida-Practica1.ejs"> Unirse a partida </a>
+					
+					</li>
+
+					<li>
+					
+						<a href="HTML_CrearPartida-Practica1.ejs"> Crear partida </a>
+					
+					</li>
+				
+				</ul></div>
+
+		<div class="contenido">
+
+			<%if(creacion === true) { %>
+                        <p class="correct"> <img src="img/check.png" alt="titulo"> La partida <%= partida%> se ha creado correctamente </p>
+            <% } %>
+
+            <%if(unirse === true) { %>
+                        <p class="correct"> <img src="img/check.png" alt="titulo"> Te has unido a la partida <%= partida%> correctamente </p>
+            <% } %>
+
+            <%if(cerrada === true) { %>
+                        <p class="correct"> <img src="img/check.png" alt="titulo"> La partida <%= partida%> se ha activado correctamente </p>
+            <% } else if (cerrada === "noJugadores") { %>
+            			<p class="incorrect"> <img src="img/error.png" alt="titulo"> La partida <%= partida%> no se ha activado correctamente porque faltan jugadores</p>
+            <% } %>
+
+			<h1> <%if(sexo === 1) { %> 
+			¡Bienvenido, 
+			<% } else { %>
+			¡Bienvenida,<% } %> <%= nombreCompleto%>!</h1>
+
+			<h2>Partidas abiertas</h2>
+			
+			<p>Las siguientes partidas han sido creadas por ti, pero aún están a la espera de recibir mas jugadores.</p>
+
+			<table>
+				
+			<tr>
+				<th>Nombre</th>
+				<th>Fecha</th>
+				<th>Número máximo de jugadores</th>
+			</tr>
+
+			<% abiertasPrivadas.forEach(function(partida){ %>
+				
+				<tr>
+					<td><%= partida.Nombre %></td>
+					<td><%= partida.Fecha %></td>
+					<td><%= partida.Numero_Jugadores %></td>
+                    <td class ="enlace"><a href="/ActivarPartida?nombre=<%= partida.Nombre %>"> Cerrar </a></td>
+				</tr>
+
+
+			<% }); %>
+
+			</table>
+
+			<h2>Partidas activas</h2>
+
+			<p>Haz click en el botón de entrar para ver su estado actual <br> se marcan resaltadas la partidas en las que es tu turno.</p>
+
+			<table>
+				
+			<tr>
+				<th>Nombre</th>
+				<th>Usuario creador</th>
+				<th>Fecha</th>
+				<th>Turno</th>
+			</tr>
+
+			<% activasPrivadas.forEach(function(partida){ %>
+
+				<%if(usuario === partida.Turno){ %>
+
+					<tr class="resaltado">
+
+				<% } else{ %>
+
+					<tr>
+
+				<% } %>
+
+					<td><%= partida.Nombre %></td>
+					<td><%= partida.Creador %></td>
+					<td><%= partida.Fecha %></td>
+					<td><%= partida.Turno %></td>
+                    <td class ="enlace"><a href="/cargaTablero?nombre=<%= partida.Nombre %>"> Entrar </a></td>
+				</tr>
+
+			<% }); %>
+
+			</table>
+
+			<h2>Partidas terminadas</h2>
+
+			<table>
+				<tr>
+				<th>Nombre</th>
+				<th>Usuario creador</th>
+				<th>Rol ganador</th>
+			</tr>
+
+			<% cerradasPrivadas.forEach(function(partida){ %>
+
+				<tr>
+					<td><%= partida.Nombre %></td>
+					<td><%= partida.Creador %></td>
+					<td><%= partida.Ganador %></td>
+					<td class ="enlace"><a href="/cargaTablero?nombre=<%= partida.Nombre %>"> Entrar </a></td>
+				</tr>
+
+			<% }); %>
+
+			</table>
+
+		</div>
+
+
+	</body>
+</html>
