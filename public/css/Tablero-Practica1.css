@@ -124,7 +124,7 @@ border-collapse: collapse;
 float: left;
 border-collapse: collapse;
 }
-.jugadoresPoner td{
+.jugadoresPoner .celdaJug{
 	border: 1px solid black;
 	padding: 2px 14px;
 	padding-top: 5px;
@@ -145,4 +145,33 @@ border-collapse: collapse;
     display: inline-block;
     vertical-align: top;
 }
+.enlacePoner{
+	background: #af0101;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid black;
+}
 
+.enlacePoner :hover{
+	background: #ffa500;
+	color: black;
+}
+
+.enlacePoner a{
+	color: white;
+	font-weight: bold;
+	padding:21px 15px 21px 15px;
+	margin: 0px;
+	text-decoration: none;
+}
+.comentarios table{
+	border-collapse: collapse;
+}
+.comentarios td{
+	border: 1px solid black;
+}
+.comentario pre{
+  overflow: auto;
+	width:900px;
+    white-space: pre-wrap; 
+}

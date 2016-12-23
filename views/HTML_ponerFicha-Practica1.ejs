@@ -47,9 +47,9 @@
 
 		<div class="jugadoresPoner">
 			
-	                        <h2>Jugadores que se han unido: </h2>
-	                        <p>El jugador que tiene el turno está señalado</p>
-	                        <table class= "jugadores">
+	                        <h2>Jugadores de la partida: </h2>
+	                        
+	                        <table class= "jugadoresPoner">
 	                        <tr>
 
 	                        <th>
@@ -61,34 +61,51 @@
 	                        <th>
 	                        Rol
 	                        </th>
+	                        <th>
+	                        Pico
+	                        </th>
 
 	                        </tr>
 	                        
 	                        
-	                            <% JugadoresUnidos.forEach(function(user){ %>
+	                            <% JugadoresUnidos.forEach(function(usuarioUnido){ %>
 	                            <tr>
 	                            
-		                            <td>
-		                                <% if(user.Foto === "null") { %> 
+		                            <td class="celdaJug">
+		                                <% if(usuarioUnido.Foto === "null") { %> 
 		                                    <img class="imagen" src="img/Conectado.png">
 		                                    <% } else { %>
-		                                    <img class="imagen" src=<%= user.Foto%>>
+		                                    <img class="imagen" src=<%= usuarioUnido.Foto%>>
 		                                    <% } %> 
 		                            </td>
 		                            
 		                            
-		                            <td>
-		                                    <p><%= user.Nombre_Usuario%></p>
+		                           <td class="celdaJug">
+		                                    <p><%= usuarioUnido.Nombre_Usuario%></p>
 		                            </td>
 		                           
-		                           	 <td>
-		                                    <p><%= user.Rol%></p>
+		                           	<td class="celdaJug">
+		                                    <p><%= usuarioUnido.Rol%></p>
 		                            </td>
+		                            <td class="celdaJug">
+		                                    <% if(usuarioUnido.Pico === 0) { %> 
+		                                    <img class="imagen" src="img/Pick.png">
+		                                    <% } else { %>
+		                                    <img class="imagen" src="img/Pick-broken.png">
+		                                    <% } %> 
+		                            </td>
+		                             <td class ="enlacePoner"><a href="/PonerFichaEspecial?partida=<%= partida %>&ID=<%= carta %>&UsuarioAfectado=<%= usuarioUnido.user %>"> Poner </a></td>
 	                           	</tr>
 	                           
 	                            <% }); %>
 	                             
 	                        </table>
+	                        <p class="clear"></p>
+			        <h1>Desechar ficha</h1>
+					<div class="desechar">
+						
+						<a href="/desechar?ID=<%= carta %>&partida=<%= partida %>">Desechar ficha</a>
+					</div>
 	        </div>
 	        <% } else { %>
 

@@ -108,6 +108,9 @@
 	                        <th>
 	                        Rol
 	                        </th>
+	                        <th>
+	                        Pico
+	                        </th>
 
 	                        </tr>
 	                        
@@ -136,6 +139,13 @@
 		                           	 <td>
 		                            <% } %>
 		                                    <p><%= user.Rol%></p>
+		                            </td>
+		                            <td>
+		                            <% if(user.Pico === 0) { %> 
+		                                    <img class="imagen" src="img/Pick.png">
+		                                    <% } else { %>
+		                                    <img class="imagen" src="img/Pick-broken.png">
+		                                    <% } %> 
 		                            </td>
 	                           	</tr>
 	                           
@@ -176,9 +186,42 @@
 				<p>Turno de: <%= turno %></p>
 				<p>Turnos restantes: <%= turnosRestantes %></p>
 			</div>
-			
-			
 
+			<div class="comentarios">
+				<h2> Comentarios de la partida </h2>
+				<table>
+					<tr>
+						<td>
+						<% if(foto === "null") { %> 
+							<img class="imagen" src="img/Conectado.png">
+							<% } else { %>
+							<img class="imagen" src=<%= foto%>>
+							<% } %> 
+							
+							<p><%= usuario%></p>
+						</td>
+						<td class="comentario">
+							<pre> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada, neque nec lobortis convallis, metus elit fringilla justo, quis luctus felis mauris ac orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed et metus vel risus malesuada dictum. Phasellus id erat nec massa consequat cursus ac eu tortor. Proin at tempor libero. Duis vulputate velit erat. Donec elementum diam quis tempor elementum. Cras pellentesque ullamcorper lacus quis euismod. Aenean mauris arcu, tristique vel condimentum vel, consequat vitae arcu. Morbi nec varius sapien. Nulla dignissim maximus nisl sed volutpat.
+
+Nulla fringilla sit amet dolor in ultricies. Nunc quis augue quis diam placerat laoreet quis id lorem. Pellentesque vel neque velit. Praesent faucibus sollicitudin lacus sit amet laoreet. Quisque dolor sapien, venenatis non sollicitudin ac, venenatis eu neque. Sed aliquam nisi at tellus pretium convallis. Duis eu justo turpis. Morbi mollis urna purus, eu dictum nunc viverra ut. Nunc viverra eros scelerisque consectetur rhoncus. Quisque viverra placerat tincidunt. Morbi in erat imperdiet, tincidunt nisl sit amet, scelerisque ex. Cras arcu ante, efficitur in justo ac, mattis fermentum dui. Phasellus id libero nisi.
+
+Nullam ultricies vestibulum ex vitae suscipit. Sed sit amet tellus eu ipsum tempus varius vitae ut mauris. Sed volutpat ullamcorper augue, et pellentesque purus tempor tincidunt. Vivamus a nisi blandit, scelerisque ex in, malesuada erat. In dictum nulla eget ante hendrerit condimentum. Donec cursus augue dapibus mi convallis, quis feugiat tortor rhoncus. Phasellus vitae nunc facilisis, hendrerit mi quis, luctus risus. Nullam nisl enim, ullamcorper vel lobortis a, lacinia vitae lectus. Aenean finibus nulla odio, eu tincidunt magna efficitur vitae.
+
+Nam fringilla tellus nec semper blandit. Integer consequat nulla justo, a vehicula dolor aliquet a. Sed vel congue nunc, et congue nunc. Vivamus at nisl eu felis posuere aliquet. Nullam ullamcorper velit at tempus faucibus. Quisque et porta leo, vitae luctus erat. Curabitur blandit mi mattis nisi semper, in commodo tortor convallis. Vivamus quis fringilla risus, id sollicitudin ligula. Cras molestie sapien at efficitur maximus. Cras rhoncus tincidunt libero, non eleifend erat imperdiet ut. Suspendisse placerat semper felis in laoreet. Nullam efficitur vehicula condimentum.
+
+Aliquam luctus turpis a neque tincidunt, ultricies blandit felis laoreet. Cras hendrerit at magna ut vulputate. Mauris placerat hendrerit libero eu ultrices. Quisque id scelerisque turpis. Maecenas ullamcorper vitae arcu id auctor. Nulla a leo metus. Suspendisse potenti. Duis tincidunt enim sit amet ante pellentesque mollis.</pre>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						boton enviar
+						</td>
+						<td>
+						texto
+						</td>
+					</tr>
+				</table>
+			</div>
 
 		</div>
 

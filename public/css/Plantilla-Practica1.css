@@ -7,8 +7,6 @@ body{
 	background-repeat: no-repeat;
 }
 
-
-
 a{
 	cursor:pointer;
 }
@@ -95,6 +93,8 @@ a{
 	margin: 10px;
 	font-family: 'Roboto', serif;
 }
+pre{
+	font-family: 'Roboto', serif;}
 
 .contenido h1{
 	font-size: 30px;
