@@ -122,3 +122,10 @@ input.UserError{
 	text-align: right;
 	padding-right: 8px;
 }
+input [type=textarea]{
+	width:950px;
+	height:400px;
+}
+.invisible{
+	visibility: none;
+}

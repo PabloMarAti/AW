@@ -16,6 +16,7 @@ var user = require("Usuario");
 var game = require("Partida");
 var gameboard = require("Tablero");
 var card = require("Cartas");
+var comments = require("Comentarios");
 
 var app = express();
 
@@ -642,4 +643,17 @@ app.get("/LeerDatosCarta", function (req, resp) {
             }
         }
     });
+});
+app.post("/Comentario", multerFactory.single(), function (req, resp) {
+    comments.NuevoComentario(req.body.partida, req.session.usuario, req.body.comentario,function (err) {
+        if (!err) {
+            resp.redirect("/cargaTablero?nombre=" + req.body.partida);
+        } else {
+            resp.status(500);
+            resp.type("text/plain; charset = utf-8");
+            resp.write("Error 500 Internal server error " + err);
+            resp.end();
+        }
+    });
+
 });

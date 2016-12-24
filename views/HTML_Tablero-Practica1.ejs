@@ -4,6 +4,7 @@
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="css/Plantilla-Practica1.css"/>
 		<link rel="stylesheet" href="css/Tablero-Practica1.css"/>
+		<link rel="stylesheet" href="css/Formularios-Practica1.css"/>
 
 	</head>
 
@@ -189,7 +190,7 @@
 
 			<div class="comentarios">
 				<h2> Comentarios de la partida </h2>
-				<table>
+				<table class="tablacomentarios">
 					<tr>
 						<td>
 						<% if(foto === "null") { %> 
@@ -213,11 +214,24 @@ Aliquam luctus turpis a neque tincidunt, ultricies blandit felis laoreet. Cras h
 						</td>
 					</tr>
 					<tr>
-						<td>
-						boton enviar
-						</td>
-						<td>
-						texto
+						
+						<td colspan = 2>
+						<form method="POST" enctype="multipart/form-data" action="Comentario">
+
+						<table class = "cuadrotexto">
+								<tr>
+									<td><input class ="invisible" name="partida" type="text" value="<%= partida %>"></td>
+								</tr>
+								<tr>
+									<td><textarea name="comentario" rows="10" cols="100" placeholder = "Escribe tu comentario"></textarea></td>
+									
+								</tr>
+									
+								<tr>
+									<td><input class="boton" type="submit" value="Enviar Comentario"></td>
+								</tr>
+						</table>
+						</form>
 						</td>
 					</tr>
 				</table>

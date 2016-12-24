@@ -164,14 +164,21 @@ border-collapse: collapse;
 	margin: 0px;
 	text-decoration: none;
 }
-.comentarios table{
-	border-collapse: collapse;
+.comentarios{
+
 }
-.comentarios td{
+.tablacomentarios{
+	border-collapse: collapse;
+	background: rgba(216, 216, 216, 0.7);
+}
+.tablacomentarios td{
 	border: 1px solid black;
 }
 .comentario pre{
   overflow: auto;
 	width:900px;
     white-space: pre-wrap; 
+}
+.cuadrotexto td{
+border:none;
 }

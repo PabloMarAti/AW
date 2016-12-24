@@ -121,13 +121,23 @@
 				<% for(var j=0; j<7; j++){ %>
 
 					<% if( tablero[i][j] === undefined){ %>
-					<td class= "celda"><a class="enlace" title="carta" href="/ponerFicha?ID=<%= carta %>&partida=<%= partida %>&fila=<%= i %>&columna=<%= j %>"></a></td>
+						<% if (Tipo !== "Lupa" && Tipo !== "Bomba") { %>
+							<td class= "celda"><a class="enlace" title="carta" href="/ponerFicha?ID=<%= carta %>&partida=<%= partida %>&fila=<%= i %>&columna=<%= j %>"></a></td>
+						<% } else { %>
+							<td class ="celda"></td>
+						<% } %>
 					<% } else { %>
                                                     <% if( tablero[i][j].ID_Carta < 4 && Rol === "buscador" && tablero[i][j].Descubierta === 0 && ganador === null){ 
                                                         tablero[i][j].ID_Carta = 4;
                                                         tablero[i][j].URL = "img/DNK.png";
                                                      } %>
-					<td class ="celda"><img src=<%= tablero[i][j].URL %>></td>
+	                    <% if(Tipo === "Lupa" && tablero[i][j].ID_Carta === 4){ %>
+							<td class ="celda"><a title="carta" href="/ponerFichaEspecial?ID=<%= carta %>&partida=<%= partida %>&fila=<%= i %>&columna=<%= j %>"><img src=<%= tablero[i][j].URL %>></a></td>
+						<% } else if (Tipo === "Bomba" && tablero[i][j].ID_Carta > 4) { %>
+							<td class ="celda"><a title="carta" href="/ponerFichaEspecial?ID=<%= carta %>&partida=<%= partida %>&fila=<%= i %>&columna=<%= j %>"><img src=<%= tablero[i][j].URL %>></a></td>
+						<% } else { %>
+							<td class ="celda"><img src=<%= tablero[i][j].URL %>></td>
+						<% } %>
 					<% } %>
 
 				<% } %>
