@@ -111,8 +111,7 @@ app.post("/Nuevo_usuario", multerFactory.single("imagen"), function (req, resp) 
                 } else {
                     resp.status(500);
                     resp.type("text/plain; charset = utf-8");
-                    resp.write("Error 500 Internal server error \n\
-                    " + err);
+                    resp.write("Error 500 Internal server error " + err);
                     resp.end();
                 }
             });
@@ -152,8 +151,7 @@ app.post("/Logear", multerFactory.single(), function (req, resp) {
         } else {
             resp.status(500);
             resp.type("text/plain; charset = utf-8");
-            resp.write("Error 500 Internal server error \n\
-                    " + err);
+            resp.write("Error 500 Internal server error " + err);
             resp.end();
         }
     });
@@ -214,24 +212,21 @@ app.get("/HTML_Usuario-Practica1.ejs", function (req, resp) {
                         } else {
                             resp.status(500);
                             resp.type("text/plain; charset = utf-8");
-                            resp.write("Error 500 Internal server error \n\
-                    " + err);
+                            resp.write("Error 500 Internal server error " + err);
                             resp.end();
                         }
                     });
                 } else {
                     resp.status(500);
                     resp.type("text/plain; charset = utf-8");
-                    resp.write("Error 500 Internal server error \n\
-                    " + err);
+                    resp.write("Error 500 Internal server error " + err);
                     resp.end();
                 }
             });
         } else {
             resp.status(500);
             resp.type("text/plain; charset = utf-8");
-            resp.write("Error 500 Internal server error \n\
-                    " + err);
+            resp.write("Error 500 Internal server error " + err);
             resp.end();
         }
     });
@@ -260,8 +255,7 @@ app.post("/CrearPartida", multerFactory.single(), function (req, resp) {
                 } else {
                     resp.status(500);
                     resp.type("text/plain; charset = utf-8");
-                    resp.write("Error 500 Internal server error \n\
-                    " + err);
+                    resp.write("Error 500 Internal server error " + err);
                     resp.end();
                 }
             });
@@ -295,8 +289,7 @@ app.get("/unirse", function (req, resp) {
             } else {
                 resp.status(500);
                 resp.type("text/plain; charset = utf-8");
-                resp.write("Error 500 Internal server error \n\
-                    " + err);
+                resp.write("Error 500 Internal server error " + err);
                 resp.end();
             }
         } else {
@@ -316,8 +309,7 @@ app.get("/HTML_UnirseAPartida-Practica1.ejs", function (req, resp) {
         } else {
             resp.status(500);
             resp.type("text/plain; charset = utf-8");
-            resp.write("Error 500 Internal server error \n\
-                    " + err);
+            resp.write("Error 500 Internal server error " + err);
             resp.end();
         }
     });
@@ -333,8 +325,7 @@ app.get("/ActivarPartida", function (req, resp) {
                     } else {
                         resp.status(500);
                         resp.type("text/plain; charset = utf-8");
-                        resp.write("Error 500 Internal server error \n\
-                    " + err);
+                        resp.write("Error 500 Internal server error " + err);
                         resp.end();
                     }
                 });
@@ -344,8 +335,7 @@ app.get("/ActivarPartida", function (req, resp) {
         } else {
             resp.status(500);
             resp.type("text/plain; charset = utf-8");
-            resp.write("Error 500 Internal server error \n\
-                    " + err);
+            resp.write("Error 500 Internal server error " + err);
             resp.end();
         }
     });
@@ -380,8 +370,7 @@ app.get("/cargaTablero", function (req, resp) {
                                     } else {
                                         resp.status(500);
                                         resp.type("text/plain; charset = utf-8");
-                                        resp.write("Error 500 Internal server error \n\
-                    " + err);
+                                        resp.write("Error 500 Internal server error " + err);
                                         resp.end();
                                     }
 
@@ -408,24 +397,21 @@ app.get("/cargaTablero", function (req, resp) {
                         } else {
                             resp.status(500);
                             resp.type("text/plain; charset = utf-8");
-                            resp.write("Error 500 Internal server error \n\
-                    " + err);
+                            resp.write("Error 500 Internal server error " + err);
                             resp.end();
                         }
                     });
                 } else {
                     resp.status(500);
                     resp.type("text/plain; charset = utf-8");
-                    resp.write("Error 500 Internal server error \n\
-                    " + err);
+                    resp.write("Error 500 Internal server error " + err);
                     resp.end();
                 }
             });
         } else {
             resp.status(500);
             resp.type("text/plain; charset = utf-8");
-            resp.write("Error 500 Internal server error \n\
-                    " + err);
+            resp.write("Error 500 Internal server error " + err);
             resp.end();
         }
     });
@@ -456,24 +442,21 @@ app.get("/elegircarta", function (req, resp) {
                                 } else {
                                     resp.status(500);
                                     resp.type("text/plain; charset = utf-8");
-                                    resp.write("Error 500 Internal server error \n\
-                    " + err);
+                                    resp.write("Error 500 Internal server error " + err);
                                     resp.end();
                                 }
                             });
                         } else {
                             resp.status(500);
                             resp.type("text/plain; charset = utf-8");
-                            resp.write("Error 500 Internal server error \n\
-                    " + err);
+                            resp.write("Error 500 Internal server error " + err);
                             resp.end();
                         }
                     });
                 } else {
                     resp.status(500);
                     resp.type("text/plain; charset = utf-8");
-                    resp.write("Error 500 Internal server error \n\
-                    " + err);
+                    resp.write("Error 500 Internal server error " + err);
                     resp.end();
                 }
 
@@ -481,15 +464,14 @@ app.get("/elegircarta", function (req, resp) {
         } else {
             resp.status(500);
             resp.type("text/plain; charset = utf-8");
-            resp.write("Error 500 Internal server error \n\
-                    " + err);
+            resp.write("Error 500 Internal server error " + err);
             resp.end();
         }
     });
 });
 
 app.get("/ponerFicha", function (req, resp) {
-    gameboard.PonerFichaTablero(req.session.usuario, req.query.partida, req.query.ID, req.query.fila, req.query.columna, function (err, puesta) {
+    gameboard.PonerFichaTablero(req.session.usuario, null, req.query.partida, req.query.ID, req.query.fila, req.query.columna, function (err, puesta) {
         if (!err) {
             if (puesta !== "No Inicio" && puesta !== "Mal Puesta") {
                 game.ComprobarGanador(req.query.partida, function (err, ganador) {
@@ -506,8 +488,7 @@ app.get("/ponerFicha", function (req, resp) {
                                                     } else {
                                                         resp.status(500);
                                                         resp.type("text/plain; charset = utf-8");
-                                                        resp.write("Error 500 Internal server error \n\
-                    " + err);
+                                                        resp.write("Error 500 Internal server error " + err);
                                                         resp.end();
                                                     }
                                                 });
@@ -517,16 +498,14 @@ app.get("/ponerFicha", function (req, resp) {
                                         } else {
                                             resp.status(500);
                                             resp.type("text/plain; charset = utf-8");
-                                            resp.write("Error 500 Internal server error \n\
-                    " + err);
+                                            resp.write("Error 500 Internal server error " + err);
                                             resp.end();
                                         }
                                     });
                                 } else {
                                     resp.status(500);
                                     resp.type("text/plain; charset = utf-8");
-                                    resp.write("Error 500 Internal server error \n\
-                    " + err);
+                                    resp.write("Error 500 Internal server error " + err);
                                     resp.end();
                                 }
                             });
@@ -537,8 +516,7 @@ app.get("/ponerFicha", function (req, resp) {
                                 } else {
                                     resp.status(500);
                                     resp.type("text/plain; charset = utf-8");
-                                    resp.write("Error 500 Internal server error \n\
-                    " + err);
+                                    resp.write("Error 500 Internal server error " + err);
                                     resp.end();
                                 }
                             });
@@ -546,8 +524,7 @@ app.get("/ponerFicha", function (req, resp) {
                     } else {
                         resp.status(500);
                         resp.type("text/plain; charset = utf-8");
-                        resp.write("Error 500 Internal server error \n\
-                    " + err);
+                        resp.write("Error 500 Internal server error " + err);
                         resp.end();
                     }
                 });
@@ -557,9 +534,47 @@ app.get("/ponerFicha", function (req, resp) {
         } else {
             resp.status(500);
             resp.type("text/plain; charset = utf-8");
-            resp.write("Error 500 Internal server error \n\
-                    " + err);
+            resp.write("Error 500 Internal server error " + err);
             resp.end();
+        }
+    });
+});
+
+app.get("/ponerFichaEspecial", function (req, resp) {
+    gameboard.PonerFichaTablero(req.session.usuario, req.query.UsuarioAfectado, req.query.partida, req.query.ID, req.query.fila, req.query.columna, function (err, puesta) {
+        if (!err) {
+            card.CambiarCarta(req.query.partida, req.session.usuario, req.query.ID, function (err, resultado) {
+                if (!err) {
+                    game.CambiarTurno(req.query.partida, function (err, turnosRestantes) {
+                        if (!err) {
+                            if (turnosRestantes === 0) {
+                                game.ModificarEstadoPartida.CerrarPartida(req.query.partida, "Saboteador", function (err, resultado) {
+                                    if (!err) {
+                                        resp.redirect("/cargaTablero?nombre=" + req.query.partida);
+                                    } else {
+                                        resp.status(500);
+                                        resp.type("text/plain; charset = utf-8");
+                                        resp.write("Error 500 Internal server error " + err);
+                                        resp.end();
+                                    }
+                                });
+                            } else {
+                                resp.redirect("/cargaTablero?nombre=" + req.query.partida);
+                            }
+                        } else {
+                            resp.status(500);
+                            resp.type("text/plain; charset = utf-8");
+                            resp.write("Error 500 Internal server error " + err);
+                            resp.end();
+                        }
+                    });
+                } else {
+                    resp.status(500);
+                    resp.type("text/plain; charset = utf-8");
+                    resp.write("Error 500 Internal server error " + err);
+                    resp.end();
+                }
+            });
         }
     });
 });
@@ -573,16 +588,14 @@ app.get("/desechar", function (req, resp) {
                 } else {
                     resp.status(500);
                     resp.type("text/plain; charset = utf-8");
-                    resp.write("Error 500 Internal server error \n\
-                    " + err);
+                    resp.write("Error 500 Internal server error " + err);
                     resp.end();
                 }
             });
         } else {
             resp.status(500);
             resp.type("text/plain; charset = utf-8");
-            resp.write("Error 500 Internal server error \n\
-                    " + err);
+            resp.write("Error 500 Internal server error " + err);
             resp.end();
         }
     });
@@ -611,8 +624,7 @@ app.get("/LeerDatosCarta", function (req, resp) {
                     } else {
                         resp.status(500);
                         resp.type("text/plain; charset = utf-8");
-                        resp.write("Error 500 Internal server error \n\
-                    " + err);
+                        resp.write("Error 500 Internal server error " + err);
                         resp.end();
                     }
                 });
