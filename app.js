@@ -348,11 +348,38 @@ app.get("/cargaTablero", function (req, resp) {
         if (!err) {
             gameboard.Lectura.tablero(req.query.nombre, function (err, tablero) {
                 if (!err) {
-                    game.LeerPartida.PartidaActual(req.query.nombre, function (err, resultado) {
+                    comments.LeerComentariosPartida(req.query.nombre,function (err, comentarios) {
                         if (!err) {
-                            if (resultado[0].Ganador === null) {
-                                card.LeerMano(req.query.nombre, req.session.usuario, function (err, mano) {
-                                    if (!err) {
+                            game.LeerPartida.PartidaActual(req.query.nombre, function (err, resultado) {
+                                if (!err) {
+                                    if (resultado[0].Ganador === null) {
+                                        card.LeerMano(req.query.nombre, req.session.usuario, function (err, mano) {
+                                            if (!err) {
+                                                resp.render("HTML_Tablero-Practica1", {
+                                                    usuario: req.session.usuario,
+                                                    foto: req.session.Foto,
+                                                    creador: resultado[0].Creador,
+                                                    jugadores: resultado[0].Numero_Jugadores,
+                                                    JugadoresUnidos: resultado,
+                                                    turno: resultado[0].Turno,
+                                                    turnosRestantes: resultado[0].Turnos_restantes,
+                                                    partida: req.query.nombre,
+                                                    tablero: tablero,
+                                                    mano: mano,
+                                                    ganador: null,
+                                                    puesta: req.query.puesta,
+                                                    Rol: Rol,
+                                                    comentarios: comentarios
+                                                });
+                                            } else {
+                                                resp.status(500);
+                                                resp.type("text/plain; charset = utf-8");
+                                                resp.write("Error 500 Internal server error " + err);
+                                                resp.end();
+                                            }
+
+                                        });
+                                    } else {
                                         resp.render("HTML_Tablero-Practica1", {
                                             usuario: req.session.usuario,
                                             foto: req.session.Foto,
@@ -363,38 +390,22 @@ app.get("/cargaTablero", function (req, resp) {
                                             turnosRestantes: resultado[0].Turnos_restantes,
                                             partida: req.query.nombre,
                                             tablero: tablero,
-                                            mano: mano,
-                                            ganador: null,
+                                            mano: null,
+                                            ganador: resultado[0].Ganador,
                                             puesta: req.query.puesta,
-                                            Rol: Rol
+                                            Rol: Rol,
+                                            comentarios: comentarios
+
                                         });
-                                    } else {
-                                        resp.status(500);
-                                        resp.type("text/plain; charset = utf-8");
-                                        resp.write("Error 500 Internal server error " + err);
-                                        resp.end();
                                     }
 
-                                });
-                            } else {
-                                resp.render("HTML_Tablero-Practica1", {
-                                    usuario: req.session.usuario,
-                                    foto: req.session.Foto,
-                                    creador: resultado[0].Creador,
-                                    jugadores: resultado[0].Numero_Jugadores,
-                                    JugadoresUnidos: resultado,
-                                    turno: resultado[0].Turno,
-                                    turnosRestantes: resultado[0].Turnos_restantes,
-                                    partida: req.query.nombre,
-                                    tablero: tablero,
-                                    mano: null,
-                                    ganador: resultado[0].Ganador,
-                                    puesta: req.query.puesta,
-                                    Rol: Rol
-
-                                });
-                            }
-
+                                } else {
+                                    resp.status(500);
+                                    resp.type("text/plain; charset = utf-8");
+                                    resp.write("Error 500 Internal server error " + err);
+                                    resp.end();
+                                }
+                            });
                         } else {
                             resp.status(500);
                             resp.type("text/plain; charset = utf-8");

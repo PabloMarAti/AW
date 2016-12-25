@@ -127,5 +127,5 @@ input [type=textarea]{
 	height:400px;
 }
 .invisible{
-	visibility: none;
+	 visibility: hidden;
 }
