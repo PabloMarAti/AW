@@ -491,9 +491,9 @@ app.get("/ponerFicha", function (req, resp) {
                         if (ganador === "No Ganador") {
                             card.CambiarCarta(req.query.partida, req.session.usuario, req.query.ID, function (err, resultado) {
                                 if (!err) {
-                                    game.CambiarTurno(req.query.partida, function (err, turnosRestantes) {
+                                    game.CambiarTurno(req.query.partida, 0, function (err, ganadorSaboteador) {
                                         if (!err) {
-                                            if (turnosRestantes === 0) {
+                                            if (ganadorSaboteador) {
                                                 game.ModificarEstadoPartida.CerrarPartida(req.query.partida, "Saboteador", function (err, resultado) {
                                                     if (!err) {
                                                         resp.redirect("/cargaTablero?nombre=" + req.query.partida);
@@ -557,9 +557,9 @@ app.get("/ponerFichaEspecial", function (req, resp) {
         if (!err) {
             card.CambiarCarta(req.query.partida, req.session.usuario, req.query.ID, function (err, resultado) {
                 if (!err) {
-                    game.CambiarTurno(req.query.partida, function (err, turnosRestantes) {
+                    game.CambiarTurno(req.query.partida, 0, function (err, ganadorSaboteador) {
                         if (!err) {
-                            if (turnosRestantes === 0) {
+                            if (ganadorSaboteador) {
                                 game.ModificarEstadoPartida.CerrarPartida(req.query.partida, "Saboteador", function (err, resultado) {
                                     if (!err) {
                                         resp.redirect("/cargaTablero?nombre=" + req.query.partida);
